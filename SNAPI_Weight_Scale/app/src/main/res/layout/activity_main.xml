@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/snapi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TableRow
+            android:id="@+id/cable_connection_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_gravity="left">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/nav_find_cabled_scanners"
+                android:padding="10dp" />
+            <TextView
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instruction_snapi"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity" />
+        </TableRow>
+
+        <FrameLayout
+            android:layout_below="@+id/cable_connection_instructions"
+            android:id="@+id/scan_to_connect_barcode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100dp" />
+
+        <TextView
+            android:id="@+id/com_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/purple_700"
+            android:text="SNAPI mode">
+
+        </TextView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/scale_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_no_scale"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="18dp"
+            android:background="@android:color/transparent"
+            android:text="This scanner does not have a Scale" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_scale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@android:color/white" />
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@android:color/white"
+                    android:weightSum="100">
+
+
+                    <Switch
+                        android:id="@+id/scale_enable_switch"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:enabled="true"
+                        android:text="Scale enable" />
+
+                </TableRow>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.25dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@android:color/white"
+                    android:weightSum="100">
+
+
+                    <Switch
+                        android:id="@+id/live_weight_enable_switch"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
+                        android:layout_weight="65"
+                        android:text="Live Weight Enable" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/read_weight"
+                    android:background="@android:color/white"
+                    android:clickable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="91dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:weightSum="1">
+
+                    <Button
+                        android:id="@+id/read_weight_button"
+                        android:background="@android:color/holo_blue_dark"
+                        android:textColor="@android:color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginBottom="18dp"
+                        android:enabled="true"
+                        android:onClick="readWeight"
+                        android:text="Read Weight"
+                        android:textSize="24sp" />
+
+
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@android:color/white"
+                        android:weightSum="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/titleWeightMeasured"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:text="Weight Measured :"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:gravity="center_vertical"/>
+
+
+                        <TextView
+                            android:id="@+id/txtWeightMeasured"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="18dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@android:color/white"
+                        android:weightSum="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/titleWeightUnit"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:text="Weight Unit"
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:gravity="center_vertical"/>
+
+
+                        <TextView
+                            android:id="@+id/txtWeightUnit"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="18dp"
+                            android:text=""
+                            android:layout_width="0dp"
+                            android:layout_weight=".5"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/titleWeightStatus"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:text="Weight Status :" 
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:gravity="center_vertical"/>
+
+
+                        <TextView
+                            android:id="@+id/txtWeightStatus"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="18dp"
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@android:color/white"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/titleLiveWeight"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="18dp"
+                            android:text="Live Weight :"
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:gravity="center_vertical"/>
+
+
+
+                        <TextView
+                            android:id="@+id/txtLiveWeight"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="18dp"
+                            android:text=""
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TableRow
+                        android:id="@+id/zero_scale"
+                        android:background="@android:color/white"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="91dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:weightSum="1">
+
+                        <Button
+                            android:id="@+id/zero_scale_button"
+                            android:background="@android:color/white"
+                            android:clickable="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginRight="45dp"
+                            android:layout_marginBottom="18dp"
+                            android:onClick="zeroScale"
+                            android:text="Zero Scale"
+                            android:textSize="24sp" />
+
+
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <TableRow
+                        android:id="@+id/reset_scale"
+                        android:background="@android:color/white"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="91dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:weightSum="1">
+
+                        <Button
+                            android:id="@+id/reset_scale_button"
+                            android:background="@android:color/holo_blue_dark"
+                            android:textColor="@android:color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginRight="45dp"
+                            android:layout_marginBottom="18dp"
+                            android:onClick="resetScale"
+                            android:text="Reset Scale"
+                            android:textSize="24sp" />
+
+
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@android:color/darker_gray" />
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

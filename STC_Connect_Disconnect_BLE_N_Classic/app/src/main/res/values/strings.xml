@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ConnectScanner</string>
+    <string name="continue_txt">Continue</string>
+    <string name="cancel">Cancel</string>
+    <string name="get_bt_address_instruction1">Please Enter Your Bluetooth Address.</string>
+    <string name="get_bt_address_instruction_item_1"> Navigate to \"Settings > About Phone > Status > Bluetooth Address\" or </string>
+    <string name="get_bt_address_instruction_item_2">Then write down the Bluetooth address.</string>
+    <string name="get_bt_address_instruction_item_3">Hit back button until return to this screen.</string>
+    <string name="get_bt_address_instruction_item_4">Then type address below.</string>
+</resources>
